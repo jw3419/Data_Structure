@@ -8,13 +8,15 @@ class Stack {
     return this.top;
   }
 
-  push(element) {
-    this.top++;
-    this.storage[`${this.top}`] = element;
+  push(...element) {
+    for (let el of element) {
+      this.top++;
+      this.storage[`${this.top}`] = el;
+    }
   }
 
   pop() {
-    if(this.top === 0){
+    if (this.top === 0) {
       return;
     }
     let output = this.storage[`${this.top}`];
@@ -24,5 +26,3 @@ class Stack {
     return output;
   }
 }
-
-module.exports = Stack;
