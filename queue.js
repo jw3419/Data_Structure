@@ -9,9 +9,11 @@ class Queue {
     return this.rear - this.front;
   }
 
-  enqueue(element) {
-    this.storage[`${this.rear}`] = element;
-    this.rear++;
+  enqueue(...element) {
+    for (let el of element) {
+      this.storage[`${this.rear}`] = element;
+      this.rear++;
+    }
   }
 
   dequeue() {
@@ -27,5 +29,3 @@ class Queue {
     }
   }
 }
-
-module.exports = Queue;
